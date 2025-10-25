@@ -37,7 +37,7 @@
 
 ---
 
-### 🚫 Out of Scope
+### Out of Scope
 - Club creation and approval system  
 - School admin moderation features  
 - Event polls and voting system  
