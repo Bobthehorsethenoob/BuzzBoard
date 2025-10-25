@@ -35,7 +35,6 @@
    - Edit club details, members, and events  
    - QR-code attendance tracking  
 
----
 
 ### Out of Scope
 - Club creation and approval system  
