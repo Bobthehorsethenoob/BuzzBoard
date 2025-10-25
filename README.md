@@ -2,7 +2,7 @@
 ## Project Overview
  The purpose of BuzzBoard is to have students be able to join clubs, interact with members, to RSVP exclusive events and be notified of announcements. Also to have club owners be able to manage clubs, announcements, events, and members. The goal is to make the process for each action to be seamless and user friendly. A problem that BuzzBoard aims to solve for students is the lack of information surrounding clubs and events as well as an improvement to accessibility of clubs. For club owners, the problem to be solved is the management of clubs, club members, and events.
 
-### Project Scope: 
+### Project Scope and Features: 
 
 1. **Sign Up**
    - Input: email (username), password  
