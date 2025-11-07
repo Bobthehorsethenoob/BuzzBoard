@@ -25,8 +25,7 @@ replay_pid*
 
 #node modules and .env
 node_modules
-.env
-mernStack/.env
+#.env
 
 #logs and OS files
 npm-debug.log*
