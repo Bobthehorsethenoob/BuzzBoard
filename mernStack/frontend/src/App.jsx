@@ -1,6 +1,6 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import { Container, Heading, Button, Stack, Text } from '@chakra-ui/react'
-
+import ClubsPage from './pages/ClubsPage.jsx'
 
 function Home() {
   return (
@@ -9,11 +9,13 @@ function Home() {
         <Heading>Home Page</Heading>
         <Text>Chakra UI + React Router are set up ✅</Text>
         <Button as={Link} to="/create">Go to Create Page</Button>
+        <Button as={Link} to="/clubs" colorScheme="teal">
+          View Clubs
+        </Button>
       </Stack>
     </Container>
   )
 }
-
 
 function Create() {
   return (
@@ -27,12 +29,12 @@ function Create() {
   )
 }
 
-
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/create" element={<Create />} />
+      <Route path="/clubs" element={<ClubsPage />} />
     </Routes>
   )
 }
