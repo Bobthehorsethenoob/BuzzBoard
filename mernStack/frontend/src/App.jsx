@@ -1,38 +1,37 @@
-import { Routes, Route, Link } from 'react-router-dom'
-import { Container, Heading, Button, Stack, Text } from '@chakra-ui/react'
+// src/App.jsx
+import { Routes, Route } from "react-router-dom";
+import PhoneFrame from "./components/PhoneFrame";
+import LoginScreen from "./screens/LoginScreen";
+import ForgotPasswordScreen from "./screens/ForgotPasswordScreen";
+import CreateAccountScreen from "./screens/CreateAccountScreen";
+import HomeScreen from "./screens/HomeScreen";
+import { Box, Text } from "@chakra-ui/react";
 
-
-function Home() {
+function Placeholder({ label }) {
   return (
-    <Container py={12} centerContent>
-      <Stack spacing={6} align="center">
-        <Heading>Home Page</Heading>
-        <Text>Chakra UI + React Router are set up ✅</Text>
-        <Button as={Link} to="/create">Go to Create Page</Button>
-      </Stack>
-    </Container>
-  )
+    <Box w="100%" h="100%" bg="#F8F1C2" display="flex" alignItems="center" justifyContent="center">
+      <Text>{label} screen coming soon</Text>
+    </Box>
+  );
 }
 
-
-function Create() {
+function App() {
   return (
-    <Container py={12} centerContent>
-      <Stack spacing={6} align="center">
-        <Heading>Create Page</Heading>
-        <Text>Build your form or creator UI here.</Text>
-        <Button as={Link} to="/">Back Home</Button>
-      </Stack>
-    </Container>
-  )
+    <PhoneFrame>
+      <Routes>
+        {/* Auth flows */}
+        <Route path="/" element={<LoginScreen />} />
+        <Route path="/forgot-password" element={<ForgotPasswordScreen />} />
+        <Route path="/create-account" element={<CreateAccountScreen />} />
+
+        {/* Main app */}
+        <Route path="/home" element={<HomeScreen />} />
+        <Route path="/events" element={<Placeholder label="Events" />} />
+        <Route path="/chat" element={<Placeholder label="Chat" />} />
+        <Route path="/notifications" element={<Placeholder label="Notifications" />} />
+      </Routes>
+    </PhoneFrame>
+  );
 }
 
-
-export default function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/create" element={<Create />} />
-    </Routes>
-  )
-}
+export default App;
