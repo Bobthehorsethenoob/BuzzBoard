@@ -1,4 +1,5 @@
 // src/screens/CreateAccountScreen.jsx
+import { useState } from "react";
 import {
   Box,
   Flex,
@@ -8,15 +9,22 @@ import {
   Button,
   Stack,
   Link,
+  IconButton,
 } from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
-import { IconButton } from "@chakra-ui/react";
-import { useState } from "react";
 
 function CreateAccountScreen() {
-const [showPassword, setShowPassword] = useState(false);
-const [showConfirm, setShowConfirm] = useState(false);
+  const navigate = useNavigate();
+
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
 
   return (
     <Box as="main" w="100%" h="100%" bg="#F8F1C2">
@@ -55,6 +63,8 @@ const [showConfirm, setShowConfirm] = useState(false);
                 placeholder="First Last"
                 bg="gray.50"
                 size="sm"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
                 _focusVisible={{
                   borderColor: "green.600",
                   boxShadow: "0 0 0 1px rgba(22, 101, 52, 0.6)",
@@ -72,6 +82,8 @@ const [showConfirm, setShowConfirm] = useState(false);
                 placeholder="you@csus.edu"
                 bg="gray.50"
                 size="sm"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 _focusVisible={{
                   borderColor: "green.600",
                   boxShadow: "0 0 0 1px rgba(22, 101, 52, 0.6)",
@@ -80,78 +92,97 @@ const [showConfirm, setShowConfirm] = useState(false);
             </Box>
 
             {/* Password */}
-<Box>
-                <Text fontSize="sm" mb={1} color="#4B5563">
-                    Password
-                </Text>
+            <Box>
+              <Text fontSize="sm" mb={1} color="#4B5563">
+                Password
+              </Text>
 
-                <Flex align="center" position="relative">
-                    <Input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Create a password"
-                    bg="#F9FAFB"
-                    size="sm"
-                    pr="40px"
-                    _focusVisible={{
-                        borderColor: "#166534",
-                        boxShadow: "0 0 0 1px rgba(22, 101, 52, 0.6)",
-                    }}
-                    />
+              <Flex align="center" position="relative">
+                <Input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Create a password"
+                  bg="#F9FAFB"
+                  size="sm"
+                  pr="40px"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  _focusVisible={{
+                    borderColor: "#166534",
+                    boxShadow: "0 0 0 1px rgba(22, 101, 52, 0.6)",
+                  }}
+                />
 
-                    <IconButton
-                    aria-label={showPassword ? "Hide password" : "Show password"}
-                    size="sm"
-                    variant="ghost"
-                    bg="transparent"
-                    color="#043927"
-                    _hover={{ bg: "transparent", color: "#166534" }}
-                    position="absolute"
-                    right="6px"
-                    top="50%"
-                    transform="translateY(-50%)"
-                    onClick={() => setShowPassword(!showPassword)}
-                    >
-                    {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
-                    </IconButton>
-                </Flex>
-                </Box>
+                <IconButton
+                  aria-label={
+                    showPassword ? "Hide password" : "Show password"
+                  }
+                  size="sm"
+                  variant="ghost"
+                  bg="transparent"
+                  color="#043927"
+                  _hover={{ bg: "transparent", color: "#166534" }}
+                  position="absolute"
+                  right="6px"
+                  top="50%"
+                  transform="translateY(-50%)"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                </IconButton>
+              </Flex>
+            </Box>
+
             {/* Confirm Password */}
-                <Box>
-                <Text fontSize="sm" mb={1} color="#4B5563">
-                    Confirm Password
-                </Text>
+            <Box>
+              <Text fontSize="sm" mb={1} color="#4B5563">
+                Confirm Password
+              </Text>
 
-                <Flex align="center" position="relative">
-                    <Input
-                    type={showConfirm ? "text" : "password"}
-                    placeholder="Re-enter your password"
-                    bg="#F9FAFB"
-                    size="sm"
-                    pr="40px"
-                    _focusVisible={{
-                        borderColor: "#166534",
-                        boxShadow: "0 0 0 1px rgba(22, 101, 52, 0.6)",
-                    }}
-                    />
+              <Flex align="center" position="relative">
+                <Input
+                  type={showConfirm ? "text" : "password"}
+                  placeholder="Re-enter your password"
+                  bg="#F9FAFB"
+                  size="sm"
+                  pr="40px"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  _focusVisible={{
+                    borderColor: "#166534",
+                    boxShadow: "0 0 0 1px rgba(22, 101, 52, 0.6)",
+                  }}
+                />
 
-                    <IconButton
-                    aria-label={showConfirm ? "Hide confirm password" : "Show confirm password"}
-                    size="sm"
-                    variant="ghost"
-                    bg="transparent"
-                    color="#043927"
-                    _hover={{ bg: "transparent", color: "#166534" }}
-                    position="absolute"
-                    right="6px"
-                    top="50%"
-                    transform="translateY(-50%)"
-                    onClick={() => setShowConfirm(!showConfirm)}
-                    >
-                    {showConfirm ? <EyeOff size={16} /> : <Eye size={16} />}
-                    </IconButton>
-                </Flex>
-                </Box>
+                <IconButton
+                  aria-label={
+                    showConfirm
+                      ? "Hide confirm password"
+                      : "Show confirm password"
+                  }
+                  size="sm"
+                  variant="ghost"
+                  bg="transparent"
+                  color="#043927"
+                  _hover={{ bg: "transparent", color: "#166534" }}
+                  position="absolute"
+                  right="6px"
+                  top="50%"
+                  transform="translateY(-50%)"
+                  onClick={() => setShowConfirm(!showConfirm)}
+                >
+                  {showConfirm ? <EyeOff size={16} /> : <Eye size={16} />}
+                </IconButton>
+              </Flex>
+            </Box>
 
+            {/* Error message (if any) */}
+            {error && (
+              <Text fontSize="xs" color="red.600" textAlign="center">
+                {error}
+              </Text>
+            )}
+
+            {/* Create account button */}
             <Button
               mt={2}
               size="sm"
@@ -160,6 +191,41 @@ const [showConfirm, setShowConfirm] = useState(false);
               _hover={{ bg: "green.800" }}
               _active={{ bg: "green.900" }}
               borderRadius="full"
+              onClick={() => {
+                setError("");
+
+                if (!fullName) {
+                  setError("Please enter your full name.");
+                  return;
+                }
+                if (!email) {
+                  setError("Please enter your Sac State email.");
+                  return;
+                }
+                if (!email.endsWith("@csus.edu")) {
+                  setError("Email must be a valid @csus.edu address.");
+                  return;
+                }
+                if (!password) {
+                  setError("Please create a password.");
+                  return;
+                }
+                if (password.length < 6) {
+                  setError("Password should be at least 6 characters.");
+                  return;
+                }
+                if (!confirmPassword) {
+                  setError("Please confirm your password.");
+                  return;
+                }
+                if (password !== confirmPassword) {
+                  setError("Passwords do not match.");
+                  return;
+                }
+
+                // All good → go to home for now
+                navigate("/home");
+              }}
             >
               Create account
             </Button>
