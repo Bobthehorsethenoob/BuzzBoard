@@ -6,7 +6,7 @@ import {
   Heading,
   Input,
   IconButton,
-  Stack,
+  Image,
 } from "@chakra-ui/react";
 import { ListFilter } from "lucide-react";
 import BottomNav from "../components/BottomNav";
@@ -42,18 +42,21 @@ const joinedClubs = [
     name: "Computer Science Society",
     role: "Member",
     nextMeeting: "Mon • 6:00 PM",
+    imageUrl: "https://via.placeholder.com/300x180?text=CS+Society",
   },
   {
     id: 2,
     name: "Esports Club",
     role: "Officer",
     nextMeeting: "Wed • 5:30 PM",
+    imageUrl: "https://via.placeholder.com/300x180?text=Esports+Club",
   },
   {
     id: 3,
     name: "Outdoor Adventure Club",
     role: "Member",
     nextMeeting: "Sun • 9:00 AM",
+    imageUrl: "https://via.placeholder.com/300x180?text=Adventure+Club",
   },
 ];
 
@@ -191,7 +194,17 @@ function HomeScreen() {
                 borderRadius="xl"
                 p={3}
                 boxShadow="md"
+                overflow="hidden"
               >
+                <Box mb={2} borderRadius="lg" overflow="hidden">
+                  <Image
+                    src={club.imageUrl}
+                    alt={club.name}
+                    w="100%"
+                    h="90px"
+                    objectFit="cover"
+                  />
+                </Box>
                 <Text fontSize="sm" fontWeight="bold" color="#111827">
                   {club.name}
                 </Text>
