@@ -24,6 +24,17 @@ body {
   background: #020617; /* near-black */
 }
 
+/* Hide scrollbar for the horizontal club selector */
+.club-scroll {
+  overflow-x: auto;
+  -ms-overflow-style: none;  /* IE and old Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.club-scroll::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Edge (Chromium) */
+}
+
 /* Remove any Vite starter max-width / padding on #root */
 #root {
   width: 100%;

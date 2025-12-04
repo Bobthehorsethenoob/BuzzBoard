@@ -134,13 +134,8 @@ function ChatScreen() {
           <Flex
             gap={2}
             overflowX="auto"
-            sx={{
-              "&::-webkit-scrollbar": {
-                display: "none",
-              },
-              scrollbarWidth: "none", // Firefox
-            }}
-          >
+            className="club-scroll"
+        >
             {userClubs.map((club) => {
               const isActive = club.id === selectedClubId;
               return (
