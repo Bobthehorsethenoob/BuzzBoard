@@ -28,7 +28,7 @@ function CreateAccountScreen() {
 
   return (
     <Box as="main" w="100%" h="100%" bg="#F8F1C2">
-      <Flex direction="column" h="100%" px={6} pt={6} pb={4}>
+      <Flex direction="column" h="100%" px={6} pt={6} pb={4} overflowY="auto">
         {/* Header */}
         <Box mb={6}>
           <Text
