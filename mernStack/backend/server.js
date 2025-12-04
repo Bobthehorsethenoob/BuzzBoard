@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 import express from "express";
 import eventRoutes from "./routes/eventRoutes.js";
+import calendarRoutes from "./routes/calendarRoutes.js";
 
 dotenv.config();
 
@@ -9,6 +10,8 @@ connectDB();
 
 
 // console.log("Loaded MONGO_URI:", process.env.MONGO_URI);
+
+app.use("/api/calendar", calendarRoutes);
 
 const app = express();
 

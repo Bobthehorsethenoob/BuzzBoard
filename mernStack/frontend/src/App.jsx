@@ -8,6 +8,7 @@ import HomeScreen from "./screens/HomeScreen";
 import NotificationsScreen from "./screens/NotificationsScreen";
 import ChatScreen from "./screens/ChatScreen";
 import { Box, Text } from "@chakra-ui/react";
+import CalendarScreen from "./screens/CalendarScreen";
 
 function Placeholder({ label }) {
   return (
@@ -30,7 +31,7 @@ function App() {
 
         {/* Main app */}
         <Route path="/home" element={<HomeScreen />} />
-        <Route path="/events" element={<Placeholder label="Events" />} />
+        <Route path="/events" element={<CalendarScreen />} />
         <Route path="/chat" element={<Placeholder label="Chat" />} />
         <Route path="/notifications" element={<Placeholder label="Notifications" />} />
       </Routes>
