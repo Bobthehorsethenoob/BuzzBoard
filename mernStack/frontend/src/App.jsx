@@ -5,6 +5,7 @@ import LoginScreen from "./screens/LoginScreen";
 import ForgotPasswordScreen from "./screens/ForgotPasswordScreen";
 import CreateAccountScreen from "./screens/CreateAccountScreen";
 import HomeScreen from "./screens/HomeScreen";
+import NotificationsScreen from "./screens/NotificationsScreen";
 import { Box, Text } from "@chakra-ui/react";
 
 function Placeholder({ label }) {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<LoginScreen />} />
         <Route path="/forgot-password" element={<ForgotPasswordScreen />} />
         <Route path="/create-account" element={<CreateAccountScreen />} />
+        <Route path="/notifications" element={<NotificationsScreen />} />
 
         {/* Main app */}
         <Route path="/home" element={<HomeScreen />} />
