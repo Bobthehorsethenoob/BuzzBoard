@@ -1,5 +1,12 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import { Container, Heading, Button, Stack, Text } from '@chakra-ui/react'
+import SearchPage from './pages/SearchPage'
+import { NavBar } from './components/NavBar'
+
+
+
+
+
 
 
 function Home() {
@@ -28,11 +35,17 @@ function Create() {
 }
 
 
+
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/create" element={<Create />} />
-    </Routes>
+    <div>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/create" element={<Create />} />
+        <Route path="/search" element={<SearchPage />} />
+      </Routes>
+    </div>
+
   )
 }
