@@ -7,6 +7,7 @@ import {
   Input,
   IconButton,
   Image,
+  Button,
 } from "@chakra-ui/react";
 import { ListFilter } from "lucide-react";
 import BottomNav from "../components/BottomNav";
@@ -158,6 +159,15 @@ function HomeScreen() {
                 <Text fontSize="xs" color="#6B7280" mt={1}>
                   Hosted by {event.club}
                 </Text>
+                <Button
+                  size="sm"
+                  mt={2}
+                  colorScheme="green"
+                  w="full"
+                  borderRadius="md"
+                >
+                  View
+                </Button>
               </Box>
             ))}
           </Box>
@@ -214,6 +224,15 @@ function HomeScreen() {
                 <Text fontSize="xs" color="#6B7280" mt={1}>
                   Next meeting: {club.nextMeeting}
                 </Text>
+                <Button
+                  size="sm"
+                  mt={2}
+                  colorScheme="green"
+                  w="full"
+                  borderRadius="md"
+                >
+                  View
+                </Button>
               </Box>
             ))}
           </Box>
