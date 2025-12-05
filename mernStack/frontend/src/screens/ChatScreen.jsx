@@ -236,45 +236,46 @@ function ChatScreen() {
         </Stack>
       </Box>
 
-      {/* Input bar */}
-      <Box
-        px={4}
-        py={2}
-        borderTop="1px solid rgba(0,0,0,0.08)"
-        bg="#F8F1C2"
-      >
-        <Flex align="center" gap={2}>
-          <Input
-            size="sm"
-            bg="white"
-            placeholder={
-              selectedClub
-                ? `Message ${selectedClub.name}...`
-                : "Select a club to start chatting..."
-            }
-            value={draft}
-            onChange={(e) => setDraft(e.target.value)}
-            isDisabled={!selectedClub}
-            _focusVisible={{
-              borderColor: "green.600",
-              boxShadow: "0 0 0 1px rgba(22, 101, 52, 0.6)",
-            }}
-          />
+     {/* Input bar */}
+<Box
+  px={4}
+  py={2}
+  borderTop="1px solid rgba(0,0,0,0.08)"
+  bg="#F8F1C2"
+>
+  <Flex align="center" gap={2}>
+    <Input
+      size="sm"
+      bg="white"
+      placeholder={
+        selectedClub
+          ? `Message ${selectedClub.name}...`
+          : "Select a club to start chatting..."
+      }
+      value={draft}
+      onChange={(e) => setDraft(e.target.value)}
+      isDisabled={!selectedClub}
+      _focusVisible={{
+        borderColor: "green.600",
+        boxShadow: "0 0 0 1px rgba(22, 101, 52, 0.6)",
+      }}
+    />
 
-          <IconButton
-            aria-label="Send message"
-            icon={<Send size={16} />}
-            size="sm"
-            borderRadius="full"
-            bg="green.700"
-            color="white"
-            _hover={{ bg: "green.800" }}
-            _active={{ bg: "green.900" }}
-            onClick={handleSend}
-            isDisabled={!selectedClub || !draft.trim()}
-          />
-        </Flex>
-      </Box>
+    <IconButton
+      aria-label="Send message"
+      size="sm"
+      borderRadius="full"
+      bg="#00773F"
+      color="white"
+      _hover={{ bg: "#006B38" }}
+      _active={{ bg: "#005A2F" }}
+      onClick={handleSend}
+      isDisabled={!selectedClub || !draft.trim()}
+    >
+      <Send size={18} />
+    </IconButton>
+  </Flex>
+</Box>
 
       {/* Bottom nav */}
       <BottomNav />
