@@ -159,6 +159,15 @@ function HomeScreen() {
                 <Text fontSize="xs" color="#6B7280" mt={1}>
                   Hosted by {event.club}
                 </Text>
+                <Button
+                  size="sm"
+                  mt={2}
+                  colorScheme="green"
+                  w="full"
+                  borderRadius="md"
+                >
+                  View
+                </Button>
               </Box>
             ))}
           </Box>
