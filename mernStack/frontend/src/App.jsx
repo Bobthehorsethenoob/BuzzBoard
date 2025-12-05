@@ -9,10 +9,18 @@ import NotificationsScreen from "./screens/NotificationsScreen";
 import ChatScreen from "./screens/ChatScreen";
 import { Box, Text } from "@chakra-ui/react";
 import CalendarScreen from "./screens/CalendarScreen";
+import ClubScreen from "./screens/ClubScreen";
 
 function Placeholder({ label }) {
   return (
-    <Box w="100%" h="100%" bg="#F8F1C2" display="flex" alignItems="center" justifyContent="center">
+    <Box
+      w="100%"
+      h="100%"
+      bg="#F8F1C2"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
       <Text>{label} screen coming soon</Text>
     </Box>
   );
@@ -32,6 +40,10 @@ function App() {
         {/* Main app */}
         <Route path="/home" element={<HomeScreen />} />
         <Route path="/events" element={<CalendarScreen />} />
+
+        {/* NEW Club page route */}
+        <Route path="/club/:id" element={<ClubScreen />} />
+
         <Route path="/chat" element={<Placeholder label="Chat" />} />
         <Route path="/notifications" element={<Placeholder label="Notifications" />} />
       </Routes>

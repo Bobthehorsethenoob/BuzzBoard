@@ -10,6 +10,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { ListFilter } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import BottomNav from "../components/BottomNav";
 
 // Fake data for demo
@@ -62,6 +63,8 @@ const joinedClubs = [
 ];
 
 function HomeScreen() {
+  const navigate = useNavigate();
+
   return (
     <Box
       as="main"
@@ -159,13 +162,7 @@ function HomeScreen() {
                 <Text fontSize="xs" color="#6B7280" mt={1}>
                   Hosted by {event.club}
                 </Text>
-                <Button
-                  size="sm"
-                  mt={2}
-                  colorScheme="green"
-                  w="full"
-                  borderRadius="md"
-                >
+                <Button size="sm" mt={2} bg="#00773F" w="full" borderRadius="md">
                   View
                 </Button>
               </Box>
@@ -224,12 +221,15 @@ function HomeScreen() {
                 <Text fontSize="xs" color="#6B7280" mt={1}>
                   Next meeting: {club.nextMeeting}
                 </Text>
+
+                {/* VIEW BUTTON WITH NAVIGATION */}
                 <Button
                   size="sm"
                   mt={2}
-                  colorScheme="green"
+                  bg="#00773F"
                   w="full"
                   borderRadius="md"
+                  onClick={() => navigate(`/club/${club.id}`)}
                 >
                   View
                 </Button>
@@ -237,8 +237,6 @@ function HomeScreen() {
             ))}
           </Box>
         </Box>
-
-        {/* You can add more sections here later */}
       </Box>
 
       {/* Bottom navigation pinned to bottom */}
